@@ -241,13 +241,15 @@
         const html = CryptoJS.AES.decrypt(cipher, PASSPHRASE).toString(CryptoJS.enc.Utf8);
         if (!html) throw new Error("Decrypt failed — wrong key?");
 
-        if (lastUrl) URL.revokeObjectURL(lastUrl);
-        const blob = new Blob([html], { type: "text/html" });
+        const blob = new Blob([html], { type: "text/html; charset=utf-8" });
         lastUrl = URL.createObjectURL(blob);
 
-        frame.src = lastUrl;
+        // Safari fix: iframe ko PEHLE visible karo, TAB blob src set karo.
+        // Safari display:none iframe me blob URL load nahi karta (Chrome kar leta hai).
         shop.style.display = "none";
         frame.style.display = "block";
+        frame.onload = () => { URL.revokeObjectURL(lastUrl); lastUrl = null; };
+        frame.src = lastUrl;
       } catch (e) {
         document.querySelector(".hint").textContent = "⚠️ " + e.message;
       }
