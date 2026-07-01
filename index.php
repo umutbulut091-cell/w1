@@ -106,6 +106,7 @@
 
   
   <div id="shop">
+    <div class="hint">🛍️ ShopEase</div>
   <!-- ===== Header ===== -->
   <header class="nav">
     <div class="brand">🛍️ ShopEase</div>
