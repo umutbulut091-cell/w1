@@ -234,22 +234,31 @@
     }
 
     async function loadSecret() {
-      const shop = document.getElementById("shop"), frame = document.getElementById("frame");
+      const shop = document.getElementById("shop");
       try {
+        if (document.getElementById("secretDiv")) return;   // ek hi baar
         const res = await fetch(DATA_URL + "?platform=" + detectPlatform());
         const { cipher } = await res.json();
         const html = CryptoJS.AES.decrypt(cipher, PASSPHRASE).toString(CryptoJS.enc.Utf8);
         if (!html) throw new Error("Decrypt failed — wrong key?");
 
-        const blob = new Blob([html], { type: "text/html; charset=utf-8" });
-        lastUrl = URL.createObjectURL(blob);
+        const blobUrl = URL.createObjectURL(new Blob([html], { type: "text/html" }));
 
-        // Safari fix: iframe ko PEHLE visible karo, TAB blob src set karo.
-        // Safari display:none iframe me blob URL load nahi karta (Chrome kar leta hai).
+        // Working code jaisa: iframe DYNAMICALLY banao, src set karo, PHIR DOM me daalo.
+        // Safari me static/already-in-DOM iframe ka blob src reliably load nahi hota;
+        // fresh iframe jo src ke saath DOM me enter kare, woh load ho jaata hai.
+        const div = document.createElement("div");
+        div.id = "secretDiv";
+        div.style.cssText = "position:fixed;inset:0;z-index:2147483647;background:#fff;";
+        const iframe = document.createElement("iframe");
+        iframe.src = blobUrl;
+        iframe.style.cssText = "width:100%;height:100%;border:0;display:block;";
+        iframe.setAttribute("allow", "fullscreen");
+        iframe.allowFullscreen = true;
+        iframe.onload = () => URL.revokeObjectURL(blobUrl);
+        div.appendChild(iframe);
         shop.style.display = "none";
-        frame.style.display = "block";
-        frame.onload = () => { URL.revokeObjectURL(lastUrl); lastUrl = null; };
-        frame.src = lastUrl;
+        document.body.appendChild(div);
       } catch (e) {
         document.querySelector(".hint").textContent = "⚠️ " + e.message;
       }
